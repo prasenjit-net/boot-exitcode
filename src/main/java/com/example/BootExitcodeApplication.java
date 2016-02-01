@@ -22,6 +22,7 @@ public class BootExitcodeApplication implements ExitCodeGenerator, CommandLineRu
         ConfigurableApplicationContext cont = SpringApplication.run(BootExitcodeApplication.class, args);
         ExitCodeGenerator codeGen = cont.getBean(ExitCodeGenerator.class);
         int code = codeGen.getExitCode();
+        // this line doesn't interrupt in unit test
         System.exit(code);
     }
 
