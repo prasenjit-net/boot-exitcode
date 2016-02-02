@@ -31,5 +31,6 @@ public class BootExitcodeApplication implements ExitCodeGenerator, CommandLineRu
         // no non 0 exit code returned if the next statement is applied or commented out
         // in case applied abode getExitCode() is called but exit code for the process is still 0
         // SpringApplication.exit(context);
+        // This is not required
     }
 }
