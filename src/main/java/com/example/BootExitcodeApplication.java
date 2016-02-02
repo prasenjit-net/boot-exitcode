@@ -6,7 +6,6 @@ import org.springframework.boot.ExitCodeGenerator;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
@@ -19,11 +18,7 @@ public class BootExitcodeApplication implements ExitCodeGenerator, CommandLineRu
     private ApplicationContext context;
 
     public static void main(String[] args) {
-        ConfigurableApplicationContext cont = SpringApplication.run(BootExitcodeApplication.class, args);
-        ExitCodeGenerator codeGen = cont.getBean(ExitCodeGenerator.class);
-        int code = codeGen.getExitCode();
-        // this line doesn't interrupt in unit test
-        System.exit(code);
+        System.exit(SpringApplication.exit(SpringApplication.run(BootExitcodeApplication.class, args)));
     }
 
     @Override
